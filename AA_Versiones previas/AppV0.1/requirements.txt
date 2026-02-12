@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+joblib
+lightgbm
+altair
+matplotlib
+scikit-learn
+edge-tts
+groq

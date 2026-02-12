@@ -1,0 +1,3 @@
+id_reserva,fecha_creacion,destino,complejo,hotel,habitacion,llegada,noches,adultos,ninos,cunas,pax,cliente_nombre,cliente_email,cliente_telefono,cliente_pais,fidelidad,valor_total,prob_cancelacion,estado,oferta_retencion,notas
+704974909601,2026-02-07 21:51:38,MEXICO,Complejo Costa Mujeres,Grand Palladium Select Costa Mujeres,CMU JUNIOR SUITE GV,2026-03-09,7,2,0,0,2,a,a,a,ESPAÑA,Palladium Rewards,2520,0.5749261199732073,Confirmada,,
+704978009601,2026-02-07 21:56:49,MEXICO,Complejo Costa Mujeres,Grand Palladium Select Costa Mujeres,CMU JUNIOR SUITE GV,2026-03-09,7,2,0,0,2,a,a,a,ESPAÑA,Palladium Rewards,2520,0.5749261199732073,Confirmada,,
