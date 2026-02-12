@@ -8,6 +8,7 @@ matplotlib
 scikit-learn
 edge-tts
 groq
-shap
+numba>=0.59.1
+shap>=0.44.1
 requests
 python-dotenv
