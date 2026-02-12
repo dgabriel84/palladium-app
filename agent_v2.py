@@ -295,7 +295,6 @@ def generar_audio_edge(texto):
         
         async def _save_audio():
             communicate = edge_tts.Communicate(texto, voice, rate=rate)
-            # Guardar en memoria
             mp3_fp = io.BytesIO()
             async for chunk in communicate.stream():
                 if chunk["type"] == "audio":
@@ -303,7 +302,19 @@ def generar_audio_edge(texto):
             mp3_fp.seek(0)
             return mp3_fp
 
-        return asyncio.run(_save_audio())
+        try:
+            # En Streamlit/entornos con loop ya corriendo
+            loop = asyncio.get_event_loop()
+            if loop.is_running():
+                # No podemos usar run_until_complete si ya está corriendo
+                # Pero en Streamlit el script corre en un hilo separado sin loop principal corriendo usualmente
+                # o podemos intentar crear uno nuevo
+                new_loop = asyncio.new_event_loop()
+                return new_loop.run_until_complete(_save_audio())
+            else:
+                return loop.run_until_complete(_save_audio())
+        except RuntimeError:
+            return asyncio.run(_save_audio())
         
     except ImportError:
         print("DEBUG: edge-tts no instalado")

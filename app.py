@@ -2420,7 +2420,14 @@ def main():
                     for m in historial_completo
                 ]
                 
-                respuesta = agent_v2.chat_con_acciones(prompt, historial_agente, estado_actual)
+                try:
+                    respuesta = agent_v2.chat_con_acciones(prompt, historial_agente, estado_actual)
+                except Exception as e:
+                    st.error(f"Error en el motor del agente: {e}")
+                    respuesta = {
+                        "mensaje": "Lo siento, Sophie ha tenido un problema técnico. Intenta de nuevo por favor.",
+                        "acciones": []
+                    }
             
             # 3. Mostrar respuesta agente
             mensaje_texto = respuesta.get("mensaje", "")
